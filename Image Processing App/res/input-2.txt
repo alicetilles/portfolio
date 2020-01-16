@@ -1,0 +1,14 @@
+load ./santaferesized.jpg santafe
+load ./santaferesized.jpg santafe
+load ./santaferesized.jpg santafe
+save santafe
+mosaic santafe 1000
+save santafe-mosaic
+blur santafe
+save santafe-blur
+sepia santafe-mosaic
+save santafe-mosaic-sepia
+sharpen santafe-mosaic-sepia
+save santafe-mosaic-sepia-sharpen
+dither santafe
+save santafe-dither

@@ -1,0 +1,55 @@
+# imageprocessing
+
+imageprocessing is a package in Java to (1) filter images and (2) generate geometric images.
+
+##  Running in the Terminal
+
+If you want to run the program with the interaction GUI, run it on the command line:
+
+```jshelllanguage
+java -jar Program.jar -script path-of-script-file
+```
+
+If you want to run it batch processed with a script, save the script to a .txt file.
+
+java -jar Program.jar -script path-of-script-file
+
+## Usage - Commands in Script
+
+### Blurring and Sharpening an Image from a File
+blur [image]
+
+sharpen [image]
+
+### Applying a Color Transformation to an Image
+sepia [image]
+
+greyscale [image]
+
+
+
+### Generating Rainbow Stripes
+It is easy to quickly generate a rainbow stripe images that suits your needs. All you need is to
+input a desired height, width, and orientation. Orientation can be horizontal or vertical.
+
+rainbow [height] [width] [orientation]
+
+
+### Generating Checkerboards
+
+checkerboard [squaresize]
+
+
+
+### Flags
+[country] [width]
+
+Countries are: france, greece, switzerland
+
+## Design changes
+### Addition of a a GUI
+The GUI was implemented with the Java Swing library.
+
+## Licenses
+The landscape image and dog image were taken by Alex Gear and Alice Tilles, respectively. The use
+of these images for imageprocessing is authorized.

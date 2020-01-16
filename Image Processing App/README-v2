@@ -1,0 +1,102 @@
+# imageprocessing
+
+imageprocessing is a package in Java to (1) filter images and (2) generate geometric images.
+
+## Installation
+
+Install the package and import each class:
+
+```java
+import imageprocessing.*;
+```
+
+## Usage
+
+### Blurring and Sharpening an Image from a File
+Blurring and sharpening are built-in filter methods in the imageprocessing package.
+To apply either of these to an image, first create the image (loading it
+from a file is a convenient method). Then create the Filter object. They can also create a filter by
+inputting the kernel, either a Pixel[][] object or a double[][][] object directly.
+Then, the user applies the filter to the image, and a new Image object is created (the old
+image is not mutated). Finally, the user can output the new image to a file by specifying the
+desired path.
+```java
+import imageprocessing.*;
+Image myImage = new Image("./res/santaferesized.jpg");
+Filter blur = new Filter(Filters.BLUR);
+Image myBlurredImage = blur.apply(myImage);
+myBlurredImage.writeImageToFile("santafe_blurry.png");
+```
+This code creates a blurred manhattan-small image.
+
+
+### Applying a Color Transformation to an Image
+Similar to Filters, a transformation alters an existing image. But, a transformation acts
+differently on different colors channels. This allows you to create greyscale
+or sepia images from existing images. Built-in transformations are sepia and greyscale.
+
+```java
+import imageprocessing.*;
+Image myImage = new Image("./res/shadowresize.jpg");
+Transformation sepia = new Transformation(Transformations.SEPIA);
+Image mySepiaImage = sepia.apply(myImage);
+mySepiaImage.writeImageToFile("shadow_sepia.png");
+```
+
+
+
+### Generating Rainbow Stripes
+It is easy to quickly generate a rainbow stripe images that suits your needs. All you need is to
+input a desired height, width, and orientation. Orientation can be horizontal or vertical.
+
+```java
+Rainbow testRainbow1 = new Rainbow(150, 140, Orientation.HORIZONTAL);
+testRainbow1.writeToFile("RainbowHorizontal.png");
+```
+This code generates an image 150px tall, 140px wide, with horizontal rainbow stripes.
+
+
+### Generating Checkerboards
+
+The imageprocessing package also easily allows for checkerboard generation. Just input the desired
+square size, in pixels.
+```java
+CheckerBoard testChecker = new CheckerBoard(5);
+testChecker.writeToFile("testCheckerSmall.png");
+```
+
+
+### Flags
+Creating a flag requires the width (an integer, in pixels), a country enum, and then the name of
+the output filename. The result of this is a flag of France 500px wide,
+found in the file ./FlagFrench.png.
+```java
+import imageprocessing.*;
+Flag testFlagFrench = new Flag(500, Country.FRANCE);
+testFlagFrench.writeImageToFile("FlagFrench.png");
+```
+
+## Design changes
+### Addition of a Facade Design Pattern
+Since in our original design the model was made up of several different classes it made sense
+to minimize dependencies and reduce complexity by the addition of a Model Class and Model
+Interface which could act as a Facade for the Controller to interact with.
+
+### Introduction of AbstractImage
+We decided to consolidate the duplicate code found in our different type of images into an abstract
+image class. This included the get3Ddata() method, isValidPixelPosition method, applyFilterToPixel
+method, applyFilter method, transformPixel method, transform method, getData method, getWidth method,
+getHeight method, and the height, width, and data fields. The fact that these methods and fields are
+all shared among CheckerBoard, Flag, Image, and Rainbow classes was justification enough for us
+to implement the AbstractImage class, thus simplifying our overall code architecture.
+
+### Swapping of Image with IImage
+We thought that the code would be more open for extension if the adjustment method 'apply' took
+as arguments an Image interface, as opposed to an Image class. This change allows adjustments to
+work on any type of object that future programmers create, as long as they implement the
+IImage interface.
+
+
+## Licenses
+The landscape image and dog image were taken by Alex Gear and Alice Tilles, respectively. The use
+of these images for imageprocessing is authorized.

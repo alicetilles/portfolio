@@ -1,0 +1,37 @@
+load ./res/shadowresize.jpg shadow
+load ./res/shadowresize.jpg shadow
+load ./res/shadowresize.jpg shadow
+save shadow ./shadowreg.png
+mosaic shadow 500
+mosaic shadow 10
+mosaic shadow 100
+save shadow-mosaic shadow-mosaic.png
+save shadow-mosaic-1 shadow-mosaic-1.png
+save shadow-mosaic-2 shadow-mosaic-2.png
+blur shadow
+save shadow-blur shadow-blur.png
+sepia shadow-mosaic
+save shadow-mosaic-sepia shadow-mosaic-sepia.png
+sharpen shadow-mosaic-sepia
+save shadow-mosaic-sepia-sharpen shadow-mosaic-sepia-sharpen.png
+dither shadow
+save shadow-dither shadow-dither.png
+greyscale shadow-2
+save shadow-2-greyscale shadow-2-greyscale.png
+flag france 100
+save flag flag.png
+flag switzerland 200
+save flag-1 flag-1.png
+flag greece 300
+save flag-2 flag-2.png
+checkerboard 100
+save checkerboard checkerboard.png
+checkerboard 500
+save checkerboard-1 checkerboard-1.png
+rainbow vertical 300 500
+save rainbow rainbow.png
+rainbow horizontal 500 300
+save rainbow-1 rainbow-1.png
+mosaic rainbow-1 1000
+save rainbow-1-mosaic rainbow-1-mosaic.png
+
