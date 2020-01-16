@@ -17,7 +17,7 @@ java -jar Program.jar -script path-of-script-file
 ## Usage - Commands in Script
 
 ### Blurring and Sharpening an Image from a File
-blur [image]
+`blur [image]`
 
 sharpen [image]
 
