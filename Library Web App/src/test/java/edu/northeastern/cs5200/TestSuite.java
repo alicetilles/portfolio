@@ -35,7 +35,7 @@ public class TestSuite {
 	public void loadBooks() throws IOException, ParseException, XPathExpressionException {
 		libraryDao.dropBooks();
 		GoogleBooksAPI api = new GoogleBooksAPI(libraryDao);
-//		api.loadBooksFromAPI("https://www.googleapis.com/books/v1/volumes?q=cool&key=AIzaSyDzAEzIpOLfuwaEQcXsB-5vSN7b7lzJiMc");
+//		api.loadBooksFromAPI("https://www.googleapis.com/books/v1/volumes?q=cool");
 
 		api.loadFamousBooks();
 		api.seedDatabaseWithPopularBooks(100);
