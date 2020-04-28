@@ -48,10 +48,10 @@ public class GoogleBooksAPI {
     public void seedDatabaseWithPopularBooks(int limit) throws ParseException, XPathExpressionException, IOException {
 
         int count = 0;
+        String googleKey  = "";
         for (String bookTitle : famousBooks) {
             System.out.println("adding: " + bookTitle);
-            loadBooksFromAPI("https://www.googleapis.com/books/v1/volumes?q="+bookTitle+"&key=AIzaSyDzAEzIpOLfuwaEQcXsB" +
-                    "-5vSN7b7lzJiMc&orderBy=relevance&maxResults=1");
+            loadBooksFromAPI("https://www.googleapis.com/books/v1/volumes?q="+bookTitle+"&key=" + googleKey + "&orderBy=relevance&maxResults=1");
             count++;
             if (count == limit) {
                 return;
